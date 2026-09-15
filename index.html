@@ -5,490 +5,361 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>José Carvalho — Artista Visual</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#171310;
-    --paper-dim:#1e1a15;
-    --ink:#f3ead9;
-    --ink-soft:#b6a98f;
-    --rule:#3c3427;
-    --accent:#dba039;
-    --accent-warm:#b5522f;
-    --accent-cool:#4a7263;
-    --dark:#0c0a08;
-    --bone:#e9dfc9;
+    --bg:#14140f;
+    --bg-alt:#1b1b15;
+    --text:#ece7da;
+    --text-dim:#a39d8a;
+    --accent:#c1793b;
+    --accent-soft:#8a9a82;
+    --line:#332f26;
+    --maxw:880px;
   }
-  *{margin:0;padding:0;box-sizing:border-box;}
+  *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'Work Sans',sans-serif;
-    font-weight:400;
-    line-height:1.55;
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Work Sans', sans-serif;
+    font-weight:300;
+    line-height:1.65;
     -webkit-font-smoothing:antialiased;
   }
-  h1,h2,h3,.serif{font-family:'Fraunces',serif;}
-  a{color:inherit;text-decoration:none;}
-  img{display:block;max-width:100%;}
-  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    line-height:1.15;
+    margin:0;
+    color:var(--text);
+  }
+  a{color:var(--accent); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  img{max-width:100%; display:block;}
+  img:focus-visible, a:focus-visible, button:focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
 
-  /* NAV */
-  nav{
-    position:sticky;top:0;z-index:50;
-    background:rgba(23,19,16,.9);
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
+
+  header{
+    position:sticky; top:0; z-index:20;
+    background:rgba(20,20,15,0.92);
     backdrop-filter:blur(6px);
-    border-bottom:1px solid var(--rule);
+    border-bottom:1px solid var(--line);
   }
-  nav .wrap{
-    display:flex;justify-content:space-between;align-items:center;
-    height:64px;
+  .nav-inner{
+    max-width:var(--maxw); margin:0 auto; padding:16px 24px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
   }
-  .nav-name{font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;letter-spacing:.01em;}
-  .nav-links{display:flex;gap:28px;font-size:.88rem;color:var(--ink-soft);}
-  .nav-links a{transition:color .2s;}
-  .nav-links a:hover{color:var(--accent);}
-  .nav-toggle{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--ink);}
+  .brand{font-family:'Fraunces', serif; font-size:1.05rem; letter-spacing:0.01em;}
+  nav ul{list-style:none; display:flex; gap:22px; margin:0; padding:0; flex-wrap:wrap;}
+  nav a{color:var(--text-dim); font-size:0.92rem;}
+  nav a:hover{color:var(--accent); text-decoration:none;}
 
-  /* HERO */
   .hero{
-    position:relative;
-    padding:120px 0 80px;
-    overflow:hidden;
+    padding:96px 0 72px;
+    border-bottom:1px solid var(--line);
   }
-  .hero .wrap{
-    display:grid;
-    grid-template-columns:1.3fr 1fr;
-    align-items:center;
-    gap:40px;
-  }
-  .hero-text .eyebrow{
-    font-size:.82rem;color:var(--accent);letter-spacing:.02em;margin-bottom:18px;
-    display:block;
-  }
-  .hero-text h1{
-    font-size:clamp(3.2rem,7vw,5.6rem);
-    font-weight:600;
-    line-height:0.98;
-    margin-bottom:22px;
-    letter-spacing:-.01em;
-  }
-  .hero-text p{
-    max-width:46ch;
-    color:var(--ink-soft);
-    font-size:1.08rem;
-  }
-  .hero-photo{
-    position:relative;
-    justify-self:end;
-  }
-  .hero-photo img{
-    width:100%;
-    max-width:340px;
-    border-radius:2px;
-    filter:grayscale(15%) contrast(1.02);
-  }
-  .hero-photo::before{
-    content:"";
-    position:absolute;
-    top:-18px;left:-18px;right:18px;bottom:18px;
-    border:1px solid var(--rule);
-    z-index:-1;
+  .hero .eyebrow{color:var(--accent-soft); font-size:0.95rem; margin-bottom:18px;}
+  .hero h1{font-size:clamp(2.4rem, 6vw, 3.6rem);}
+  .hero p{max-width:56ch; color:var(--text-dim); margin-top:20px; font-size:1.05rem;}
+  .hero-img{margin-top:48px; border:1px solid var(--line);}
+  .hero-img img{width:280px;}
+
+  section{padding:72px 0; border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .section-head{display:flex; align-items:baseline; gap:14px; margin-bottom:28px;}
+  .section-head h2{font-size:1.8rem;}
+  .section-head .idx{color:var(--text-dim); font-size:0.9rem; font-variant-numeric:tabular-nums;}
+  .lede{color:var(--text-dim); max-width:60ch; margin-bottom:36px;}
+
+  blockquote{
+    border-left:2px solid var(--accent);
+    margin:32px 0; padding:4px 0 4px 22px;
+    font-family:'Fraunces', serif; font-style:italic; font-size:1.15rem; color:var(--text);
   }
 
-  section{padding:90px 0;border-top:1px solid var(--rule);}
-  .section-head{
-    display:flex;justify-content:space-between;align-items:baseline;
-    margin-bottom:44px;flex-wrap:wrap;gap:12px;
+  .gallery-group{margin-bottom:48px;}
+  .gallery-group:last-child{margin-bottom:0;}
+  .gallery-group h3{font-size:1.15rem; margin-bottom:14px; color:var(--accent-soft); font-weight:500;}
+  .grid{
+    display:grid; grid-template-columns:repeat(2, 1fr); gap:10px;
   }
-  .section-head h2{font-size:clamp(2rem,4vw,2.6rem);font-weight:500;}
-  .section-num{font-size:.85rem;color:var(--ink-soft);letter-spacing:.03em;}
-  .lede{max-width:62ch;color:var(--ink-soft);margin-bottom:44px;font-size:1.03rem;}
+  .grid img{width:100%; height:260px; object-fit:cover; background:var(--bg-alt);}
+  .grid.three{grid-template-columns:repeat(3, 1fr);}
+  .grid.three img{height:170px;}
+  .caption{color:var(--text-dim); font-size:0.92rem; margin-top:14px;}
 
-  /* ABOUT */
-  #sobre .about-grid{
-    display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;
+  .timeline-item{
+    display:grid; grid-template-columns:200px 1fr; gap:20px;
+    padding:22px 0; border-top:1px solid var(--line);
   }
-  #sobre p{color:var(--ink-soft);font-size:1.08rem;margin-bottom:1em;}
-  #sobre .about-quote{
-    font-family:'Fraunces',serif;font-weight:400;font-style:italic;
-    font-size:1.5rem;line-height:1.4;color:var(--ink);
-    border-left:2px solid var(--accent);padding-left:24px;
+  .timeline-item:first-child{border-top:none;}
+  .timeline-item .when{color:var(--text-dim); font-size:0.9rem; padding-top:3px;}
+  .timeline-item h3{font-size:1.1rem; margin-bottom:4px;}
+  .timeline-item .org{color:var(--accent-soft); font-size:0.92rem; margin-bottom:8px;}
+  .timeline-item p{color:var(--text-dim); font-size:0.95rem; margin:0;}
+
+  .skills-line{color:var(--text-dim); line-height:2;}
+  .skills-line span{color:var(--text); margin-right:6px;}
+  .skills-line span::after{content:"·"; color:var(--line); margin-left:6px; color:var(--accent-soft);}
+  .skills-line span:last-child::after{content:"";}
+
+  .contact-block{display:flex; flex-direction:column; gap:10px; margin-top:8px;}
+  .contact-block a{font-size:1.05rem; color:var(--text);}
+  .contact-block a:hover{color:var(--accent);}
+
+  footer{padding:32px 0; color:var(--text-dim); font-size:0.85rem;}
+
+  @media (max-width:600px){
+    .grid, .grid.three{grid-template-columns:repeat(2,1fr);}
+    .grid img{height:180px;}
+    .timeline-item{grid-template-columns:1fr; gap:6px;}
+    nav ul{gap:14px;}
+    .nav-inner{flex-direction:column; align-items:flex-start; gap:8px;}
   }
-
-  /* GALLERY GRID — one consistent system used everywhere */
-  .gallery{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:18px;
-  }
-  .gallery figure{
-    overflow:hidden;cursor:pointer;position:relative;
-    aspect-ratio:4/5;background:var(--paper-dim);
-    border:1px solid var(--rule);
-  }
-  .gallery img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
-  .gallery figure:hover img{transform:scale(1.05);}
-  .gallery figcaption{
-    position:absolute;left:0;right:0;bottom:0;
-    background:linear-gradient(transparent,rgba(0,0,0,.6));
-    color:#f2ede2;font-size:.72rem;padding:22px 10px 8px;
-    opacity:0;transition:opacity .25s;
-  }
-  .gallery figure:hover figcaption{opacity:1;}
-
-  /* Variant: contained/specimen images (drawings on white paper, need to see whole piece) */
-  .gallery.contain figure{background:var(--bone);}
-  .gallery.contain img{object-fit:contain;padding:14px;}
-
-  .specimen-label{
-    display:block;text-align:center;margin-top:10px;
-    font-family:'Fraunces',serif;font-style:italic;font-size:.92rem;color:var(--ink-soft);
-  }
-
-  .subhead{font-size:1.1rem;color:var(--ink-soft);margin:0 0 22px;letter-spacing:.02em;text-transform:none;font-family:'Work Sans',sans-serif;font-weight:500;}
-
-  .work-note{margin-top:32px;max-width:70ch;color:var(--ink-soft);font-size:.98rem;}
-
-  /* FEATURE - Ser para Sentir */
-  #projeto{
-    background:var(--bone);color:var(--dark);border-top:1px solid var(--rule);
-  }
-  #projeto .section-num, #projeto .subhead{color:#7a6d54;}
-  #projeto h2{color:var(--dark);}
-  #projeto .feature-grid{
-    display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center;margin-bottom:56px;
-  }
-  #projeto .feature-grid img{width:100%;cursor:pointer;}
-  #projeto .feature-text p{color:#4a4335;margin-bottom:1.1em;font-size:1rem;}
-  #projeto .feature-text .credit{color:#7a6d54;font-size:.85rem;margin-top:20px;}
-  #projeto .gallery{grid-template-columns:repeat(5,1fr);}
-  #projeto .gallery figure{border-color:#d8cbab;opacity:.85;transition:opacity .3s;background:#f5efdf;}
-  #projeto .gallery figure:hover{opacity:1;}
-
-  /* PERCURSO - timeline */
-  .timeline{position:relative;padding-left:32px;}
-  .timeline::before{content:"";position:absolute;left:4px;top:6px;bottom:6px;width:1px;background:var(--rule);}
-  .t-item{position:relative;padding-bottom:40px;}
-  .t-item:last-child{padding-bottom:0;}
-  .t-item::before{
-    content:"";position:absolute;left:-32px;top:6px;width:9px;height:9px;border-radius:50%;
-    background:var(--accent);
-  }
-  .t-date{font-size:.82rem;color:var(--accent);letter-spacing:.02em;margin-bottom:4px;}
-  .t-item h3{font-size:1.25rem;font-weight:500;margin-bottom:4px;}
-  .t-item .t-place{font-size:.9rem;color:var(--ink-soft);margin-bottom:8px;font-style:italic;}
-  .t-item p{color:var(--ink-soft);font-size:.96rem;max-width:65ch;}
-
-  .cert-box{
-    margin-top:56px;padding:28px 32px;border:1px solid var(--rule);
-  }
-  .cert-box h3{font-size:1.1rem;font-weight:500;margin-bottom:6px;}
-  .cert-box .t-date{margin-bottom:8px;}
-  .cert-box p{color:var(--ink-soft);font-size:.95rem;}
-
-  .skills-wrap{margin-top:56px;}
-  .skill-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;}
-  .skill-tags span{
-    border:1px solid var(--rule);padding:8px 16px;font-size:.87rem;color:var(--ink-soft);
-    border-radius:2px;
-  }
-
-  /* CONTACT */
-  #contacto{border-top:1px solid var(--rule);}
-  .contact-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:50px;}
-  #contacto h2{margin-bottom:20px;}
-  #contacto p.big{font-size:1.3rem;font-family:'Fraunces',serif;max-width:20ch;margin-bottom:30px;}
-  .contact-list a{display:block;font-size:1.05rem;padding:14px 0;border-bottom:1px solid var(--rule);transition:color .2s;}
-  .contact-list a:hover{color:var(--accent);}
-  .contact-list .label{display:block;font-size:.78rem;color:var(--ink-soft);letter-spacing:.02em;margin-bottom:2px;}
-
-  footer{padding:32px 0;text-align:center;font-size:.82rem;color:var(--ink-soft);border-top:1px solid var(--rule);}
-
-  /* LIGHTBOX */
-  .lightbox{
-    position:fixed;inset:0;background:rgba(15,13,11,.94);
-    display:none;align-items:center;justify-content:center;z-index:100;
-    padding:40px;flex-direction:column;
-  }
-  .lightbox.active{display:flex;}
-  .lightbox img{max-width:88vw;max-height:78vh;object-fit:contain;}
-  .lightbox .lb-caption{color:#e2dbcb;font-size:.9rem;margin-top:16px;font-family:'Fraunces',serif;font-style:italic;}
-  .lightbox .lb-close{
-    position:absolute;top:26px;right:34px;color:#e2dbcb;font-size:2rem;cursor:pointer;line-height:1;
-    background:none;border:none;
-  }
-
-  @media (max-width:860px){
-    .nav-links{display:none;}
-    .nav-toggle{display:block;}
-    nav.open .nav-links{
-      display:flex;position:absolute;top:64px;left:0;right:0;
-      background:var(--paper);flex-direction:column;padding:20px 32px;gap:18px;
-      border-bottom:1px solid var(--rule);
-    }
-    .hero .wrap{grid-template-columns:1fr;}
-    .hero-photo{justify-self:start;margin-top:30px;}
-    .hero-photo img{max-width:220px;}
-    #sobre .about-grid{grid-template-columns:1fr;gap:30px;}
-    .gallery{grid-template-columns:repeat(2,1fr) !important;}
-    #projeto .feature-grid{grid-template-columns:1fr;gap:26px;}
-    .contact-grid{grid-template-columns:1fr;gap:30px;}
-    section{padding:60px 0;}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
   }
 </style>
 </head>
 <body>
 
-<nav id="mainNav">
-  <div class="wrap">
-    <a href="#top" class="nav-name">José Carvalho</a>
-    <div class="nav-links">
-      <a href="#sobre">Sobre</a>
-      <a href="#fotografia">Fotografia</a>
-      <a href="#desenho">Desenho</a>
-      <a href="#vidro">Vidro</a>
-      <a href="#escultura">Escultura</a>
-      <a href="#projeto">Ser para Sentir</a>
-      <a href="#percurso">Percurso</a>
-      <a href="#contacto">Contacto</a>
-    </div>
-    <button class="nav-toggle" id="navToggle">☰</button>
-  </div>
-</nav>
-
-<div id="top"></div>
-
-<!-- HERO -->
-<header class="hero">
-  <div class="wrap">
-    <div class="hero-text">
-      <span class="eyebrow">Artista visual — Guimarães, Portugal</span>
-      <h1>José<br>Carvalho</h1>
-      <p>Movido por uma paixão pelas múltiplas vertentes das artes visuais. A fotografia e a escultura são as principais formas através das quais expresso a minha criatividade e a visão do mundo.</p>
-    </div>
-    <div class="hero-photo">
-      <img src="assets/profile.jpg" alt="José Carvalho">
-    </div>
+<header>
+  <div class="nav-inner">
+    <a class="brand" href="#top">José Carvalho</a>
+    <nav>
+      <ul>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#fotografia">Fotografia</a></li>
+        <li><a href="#desenho">Desenho</a></li>
+        <li><a href="#vidro">Vidro</a></li>
+        <li><a href="#escultura">Escultura</a></li>
+        <li><a href="#projeto">Ser para Sentir</a></li>
+        <li><a href="#percurso">Percurso</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
   </div>
 </header>
 
-<!-- SOBRE -->
-<section id="sobre">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Sobre mim</h2>
-      <span class="section-num">01</span>
-    </div>
-    <div class="about-grid">
-      <div>
-        <p>Sou um artista movido por uma profunda paixão pelas múltiplas vertentes das artes visuais. A fotografia e a escultura são as principais formas através das quais expresso a minha criatividade e a visão do mundo.</p>
-        <p>Procuro aprofundar os meus estudos em Artes com o objetivo de expandir os meus conhecimentos e desenvolver uma linguagem visual mais madura e autêntica, capaz de comunicar ideias, emoções e narrativas de maneira sensível e impactante.</p>
-      </div>
-      <p class="about-quote">"Estudar arte é aprender a interpretar, expressar e cultivar a curiosidade e o pensamento crítico."</p>
-    </div>
-  </div>
-</section>
+<main id="top">
 
-<!-- FOTOGRAFIA -->
-<section id="fotografia">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Fotografia</h2>
-      <span class="section-num">02</span>
+  <section class="hero wrap">
+    <p class="eyebrow">Artista visual — Guimarães, Portugal</p>
+    <h1>José Carvalho</h1>
+    <p>Movido por uma paixão pelas múltiplas vertentes das artes visuais. A fotografia e a escultura são as principais formas através das quais expresso a minha criatividade e a visão do mundo.</p>
+    <div class="hero-img">
+      <img src="https://josecarvalho05.github.io/josecarvalho/assets/profile.jpg" alt="José Carvalho">
     </div>
+  </section>
+
+  <section id="sobre" class="wrap">
+    <div class="section-head"><span class="idx">01</span><h2>Sobre mim</h2></div>
+    <p>Sou um artista movido por uma profunda paixão pelas múltiplas vertentes das artes visuais. A fotografia e a escultura são as principais formas através das quais expresso a minha criatividade e a visão do mundo.</p>
+    <p>Procuro aprofundar os meus estudos em Artes com o objetivo de expandir os meus conhecimentos e desenvolver uma linguagem visual mais madura e autêntica, capaz de comunicar ideias, emoções e narrativas de maneira sensível e impactante.</p>
+    <blockquote>Estudar arte é aprender a interpretar, expressar e cultivar a curiosidade e o pensamento crítico.</blockquote>
+  </section>
+
+  <section id="fotografia" class="wrap">
+    <div class="section-head"><span class="idx">02</span><h2>Fotografia</h2></div>
     <p class="lede">Sessões pessoais e trabalho para clientes — retratos, eventos, automóveis e paisagens. Registos que não apenas documentam momentos, mas contam histórias de forma autêntica.</p>
-    <h3 class="subhead">Póvoa de Varzim</h3>
-    <div class="gallery" style="grid-template-columns:repeat(2,1fr);margin-bottom:48px;">
-      <figure data-caption="Sessão fotográfica, Póvoa de Varzim, 2025"><img src="assets/foto-povoa-1.jpg" alt=""></figure>
-      <figure data-caption="Sessão fotográfica, Póvoa de Varzim, 2025"><img src="assets/foto-povoa-2.jpg" alt=""></figure>
+
+    <div class="gallery-group">
+      <h3>Póvoa de Varzim</h3>
+      <div class="grid">
+        <img src="https://josecarvalho05.github.io/josecarvalho/assets/foto-povoa-1.jpg" alt="Póvoa de Varzim">
+        <img src="https://josecarvalho05.github.io/josecarvalho/assets/foto-povoa-2.jpg" alt="Póvoa de Varzim">
+      </div>
     </div>
 
-    <h3 class="subhead">Palácio de Cristal, Porto</h3>
-    <div class="gallery" style="grid-template-columns:repeat(2,1fr);margin-bottom:48px;">
-      <figure data-caption="Sessão fotográfica, Palácio de Cristal, Porto, 2025"><img src="assets/foto-cristal-1.jpg" alt=""></figure>
-      <figure data-caption="Sessão fotográfica, Palácio de Cristal, Porto, 2025"><img src="assets/foto-ponte.jpg" alt=""></figure>
+    <div class="gallery-group">
+      <h3>Palácio de Cristal, Porto</h3>
+      <div class="grid">
+        <img src="https://josecarvalho05.github.io/josecarvalho/assets/foto-cristal-1.jpg" alt="Palácio de Cristal, Porto">
+        <img src="https://josecarvalho05.github.io/josecarvalho/assets/foto-ponte.jpg" alt="Palácio de Cristal, Porto">
+      </div>
     </div>
 
-    <h3 class="subhead">Viana do Castelo &amp; Macieira de Rates</h3>
-    <div class="gallery" style="grid-template-columns:repeat(2,1fr);margin-bottom:48px;">
-      <figure data-caption="Sessão fotográfica, Viana do Castelo, 2025"><img src="assets/foto-viana.jpg" alt=""></figure>
-      <figure data-caption="Sessão fotográfica, Macieira de Rates, 2025"><img src="assets/foto-gato.jpg" alt=""></figure>
+    <div class="gallery-group">
+      <h3>Viana do Castelo &amp; Macieira de Rates</h3>
+      <div class="grid">
+        <img src="https://josecarvalho05.github.io/josecarvalho/assets/foto-viana.jpg" alt="Viana do Castelo">
+        <img src="https://josecarvalho05.github.io/josecarvalho/assets/foto-gato.jpg" alt="Macieira de Rates">
+      </div>
     </div>
 
-    <h3 class="subhead">Rampa da Penha</h3>
-    <div class="gallery" style="grid-template-columns:repeat(3,1fr);margin-bottom:48px;">
-      <figure data-caption="Sessão fotográfica, Rampa da Penha, 2025"><img src="assets/foto-rampa-1.jpg" alt=""></figure>
-      <figure data-caption="Sessão fotográfica, Rampa da Penha, 2025"><img src="assets/foto-rampa-2.jpg" alt=""></figure>
-      <figure data-caption="Sessão fotográfica, Rampa da Penha, 2025"><img src="assets/foto-rampa-3.jpg" alt=""></figure>
+    <div class="gallery-group">
+      <h3>Rampa da Penha</h3>
+      <div class="grid three">
+        <img src="https://josecarvalho05.github.io/josecarvalho/assets/foto-rampa-1.jpg" alt="Rampa da Penha">
+        <img src="https://josecarvalho05.github.io/josecarvalho/assets/foto-rampa-2.jpg" alt="Rampa da Penha">
+        <img src="https://josecarvalho05.github.io/josecarvalho/assets/foto-rampa-3.jpg" alt="Rampa da Penha">
+      </div>
     </div>
 
-    <h3 class="subhead">Sessão para Clientes</h3>
-    <div class="gallery" style="grid-template-columns:repeat(3,1fr);">
-      <figure data-caption="Sessão fotográfica para cliente, 2025"><img src="assets/foto-cliente-1.jpg" alt=""></figure>
-      <figure data-caption="Sessão fotográfica para cliente, 2025"><img src="assets/foto-cliente-2.jpg" alt=""></figure>
-      <figure data-caption="Sessão fotográfica para cliente, 2025"><img src="assets/foto-cliente-3.jpg" alt=""></figure>
+    <!-- NOVA GALERIA -->
+    <div class="gallery-group">
+      <h3>Porto, Portugal</h3>
+      <div class="grid three">
+        <img src="assets/porto-ponte-luis.jpg" alt="Ponte D. Luís I, Porto">
+        <img src="assets/porto-ponte.jpg" alt="Ponte D. Luís I vista de baixo, Porto">
+        <img src="assets/porto-estatua.jpg" alt="Estátua do Infante D. Henrique, Porto">
+        <img src="assets/porto-barco-1.jpg" alt="Barco no rio Douro, Porto">
+        <img src="assets/porto-barco-2.jpg" alt="Barco Skyfall no rio Douro, Porto">
+        <img src="assets/porto-jetski.jpg" alt="Jet ski no rio Douro, Porto">
+      </div>
+      <div class="grid" style="margin-top:10px;">
+        <img src="assets/porto-cais.jpg" alt="Cais da Ribeira, Porto" style="grid-column:1 / -1;">
+      </div>
     </div>
-    <p class="work-note">Colaborações comerciais e corporativas voltadas para publicidade, branding e catálogos de produtos, além de sessões personalizadas de retrato e evento. Também podes ver mais trabalho no <a href="https://www.instagram.com/josecarvalho.shots/" target="_blank" style="color:var(--accent);text-decoration:underline;">Instagram @josecarvalho.shots</a> e no vídeo "Nexus", projeto final de CineVídeo, disponível <a href="https://youtu.be/iQNQveJQfeo" target="_blank" style="color:var(--accent);text-decoration:underline;">aqui</a>.</p>
-  </div>
-</section>
+    <!-- FIM NOVA GALERIA -->
 
-<!-- DESENHO -->
-<section id="desenho">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Desenho</h2>
-      <span class="section-num">03</span>
+    <div class="gallery-group">
+      <h3>Sessão para Clientes</h3>
+      <div class="grid three">
+        <img src="https://josecarvalho05.github.io/josecarvalho/assets/foto-cliente-1.jpg" alt="Sessão para clientes">
+        <img src="https://josecarvalho05.github.io/josecarvalho/assets/foto-cliente-2.jpg" alt="Sessão para clientes">
+        <img src="https://josecarvalho05.github.io/josecarvalho/assets/foto-cliente-3.jpg" alt="Sessão para clientes">
+      </div>
     </div>
+
+    <p class="caption">Colaborações comerciais e corporativas voltadas para publicidade, branding e catálogos de produtos, além de sessões personalizadas de retrato e evento. Também podes ver mais trabalho no <a href="https://www.instagram.com/josecarvalho.shots/" target="_blank" rel="noopener">Instagram @josecarvalho.shots</a> e no vídeo "Nexus", projeto final de CineVídeo, disponível <a href="https://youtu.be/iQNQveJQfeo" target="_blank" rel="noopener">aqui</a>.</p>
+  </section>
+
+  <section id="desenho" class="wrap">
+    <div class="section-head"><span class="idx">03</span><h2>Desenho</h2></div>
     <p class="lede">Da ilustração especulativa ao registo urbano — explorando o hibridismo de formas e a observação direta do quotidiano.</p>
 
-    <h3 class="subhead">Híbridos — desenho digital, 2025</h3>
-    <div class="gallery contain" style="grid-template-columns:repeat(5,1fr);margin-bottom:8px;">
-      <figure data-caption="Praga — Híbridos, desenho digital, 2025"><img src="assets/hibrido-praga.jpg" alt="Praga"></figure>
-      <figure data-caption="Vorax — Híbridos, desenho digital, 2025"><img src="assets/hibrido-vorax.jpg" alt="Vorax"></figure>
-      <figure data-caption="Nectaris — Híbridos, desenho digital, 2025"><img src="assets/hibrido-nectaris.jpg" alt="Nectaris"></figure>
-      <figure data-caption="Abissal — Híbridos, desenho digital, 2025"><img src="assets/hibrido-abissal.jpg" alt="Abissal"></figure>
-      <figure data-caption="Xantus — Híbridos, desenho digital, 2025"><img src="assets/hibrido-xantus.jpg" alt="Xantus"></figure>
-    </div>
-    <p class="work-note">Projeto da Unidade Curricular de Ilustração sobre o tema "monstros": desconstrução e recombinação de características morfológicas de diferentes insetos para gerar criaturas híbridas, exagerando a estranheza e o fascínio presentes na sua anatomia real.</p>
-
-    <h3 class="subhead" style="margin-top:56px;">Paisagens — 2025</h3>
-    <div class="gallery contain" style="grid-template-columns:repeat(5,1fr);">
-      <figure data-caption="Paisagens, desenho, 2025"><img src="assets/paisagem-1.jpg" alt=""></figure>
-      <figure data-caption="Paisagens, desenho, 2025"><img src="assets/paisagem-2.jpg" alt=""></figure>
-      <figure data-caption="Paisagens, desenho, 2025"><img src="assets/paisagem-3.jpg" alt=""></figure>
-      <figure data-caption="Paisagens — composição em dado, 2025"><img src="assets/paisagem-dado-1.jpg" alt=""></figure>
-      <figure data-caption="Paisagens — composição em dado, 2025"><img src="assets/paisagem-dado-2.jpg" alt=""></figure>
-    </div>
-    <p class="work-note">Série de desenhos de cafés — espaços de convivência, pausa e contemplação — reunidos num objeto tridimensional em forma de dado, símbolo do ato lúdico de escolher entre várias possibilidades.</p>
-  </div>
-</section>
-
-<!-- SERIGRAFIA -->
-<section id="serigrafia">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Serigrafia</h2>
-      <span class="section-num">04</span>
-    </div>
-    <p class="lede">Composições gráficas exploradas através de cores intensas, contrastes e diferentes matrizes, num processo técnico cuidadoso.</p>
-    <div class="gallery" style="grid-template-columns:repeat(3,1fr);">
-      <figure data-caption="Serigrafia Tradicional, 2025"><img src="assets/serigrafia-1.jpg" alt=""></figure>
-      <figure data-caption="Serigrafia Tradicional, 2025"><img src="assets/serigrafia-2.jpg" alt=""></figure>
-      <figure data-caption="Serigrafia Tradicional, 2025"><img src="assets/serigrafia-3.jpg" alt=""></figure>
-      <figure data-caption="Serigrafia Tradicional, 2025"><img src="assets/serigrafia-4.jpg" alt=""></figure>
-      <figure data-caption="Serigrafia Tradicional, 2025"><img src="assets/serigrafia-5.jpg" alt=""></figure>
-      <figure data-caption="Serigrafia Fotomecânica, 2025"><img src="assets/serigrafia-6.jpg" alt=""></figure>
-    </div>
-  </div>
-</section>
-
-<!-- VIDRO -->
-<section id="vidro">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Fusão de Vidro</h2>
-      <span class="section-num">05</span>
-    </div>
-    <p class="lede">Formação técnica e artística no Cencal: fundir pedaços de vidro a altas temperaturas para criar peças únicas, através de fusão total, fusão parcial e slump.</p>
-    <div class="gallery" style="grid-template-columns:repeat(4,1fr);">
-      <figure data-caption="Fusão de Vidro, 2025"><img src="assets/vidro-1.jpg" alt=""></figure>
-      <figure data-caption="Fusão de Vidro, 2025"><img src="assets/vidro-2.jpg" alt=""></figure>
-      <figure data-caption="Fusão de Vidro, 2025"><img src="assets/vidro-3.jpg" alt=""></figure>
-      <figure data-caption="Fusão de Vidro, 2025"><img src="assets/vidro-4.jpg" alt=""></figure>
-      <figure data-caption="Fusão de Vidro, 2025"><img src="assets/vidro-5.jpg" alt=""></figure>
-      <figure data-caption="Fusão de Vidro, 2025"><img src="assets/vidro-6.jpg" alt=""></figure>
-      <figure data-caption="Fusão de Vidro, 2025"><img src="assets/vidro-7.jpg" alt=""></figure>
-      <figure style="visibility:hidden;"></figure>
-    </div>
-    <p class="work-note">Aprendizagem sobre tipos de vidro compatíveis para fusão, corte e preparação, montagem de composições com sobreposições de cores, inclusões de metais e esmaltes, e programação de fornos — capacitação para desenvolver projetos próprios em contextos artísticos ou comerciais.</p>
-  </div>
-</section>
-
-<!-- ESCULTURA -->
-<section id="escultura">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Escultura</h2>
-      <span class="section-num">06</span>
-    </div>
-    <div class="gallery" style="grid-template-columns:repeat(3,1fr);">
-      <figure data-caption="Máscara de madeira, gravura e pintura em madeira, 2024"><img src="assets/escultura-mascara-1.jpg" alt=""></figure>
-      <figure data-caption="Máscara de madeira, gravura e pintura em madeira, 2024"><img src="assets/escultura-mascara-2.jpg" alt=""></figure>
-      <figure data-caption="'5 Sentidos', escultura, 2024"><img src="assets/escultura-5sentidos.jpg" alt="5 Sentidos"></figure>
-    </div>
-    <p class="work-note">Unidade Curricular de Madeiras, Metais e Plásticos: uma máscara em madeira que explora desenho, corte, entalhe e lixamento, e uma composição autoral que une gravura e escultura em torno do tema da árvore da vida. "5 Sentidos" — estrutura de madeira e metal que representa simbolicamente a prisão dos cinco sentidos, refletindo sobre os limites sociais, psicológicos e físicos que condicionam a perceção humana.</p>
-  </div>
-</section>
-
-<!-- PROJETO ARTÍSTICO - SER PARA SENTIR -->
-<section id="projeto">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Ser para Sentir</h2>
-      <span class="section-num">07 — Projeto Artístico</span>
-    </div>
-    <div class="feature-grid">
-      <img src="assets/serpasentir-final.jpg" alt="Ser para Sentir" data-caption="'Ser para Sentir', exposição final, 2025">
-      <div class="feature-text">
-        <p>Este trabalho escultórico aborda o tema da discriminação e do julgamento social direcionado a pessoas com deficiência visual, partindo da minha experiência pessoal ao conviver desde sempre com a cegueira do meu pai.</p>
-        <p>A obra assume a forma de uma esfera em gesso, construída sobre um molde de bola de pilates. Moldes de mãos e rostos foram meticulosamente colados para criar relevo — as mãos representam o gesto acusatório, os rostos os olhares inquisidores que muitas vezes se dirigem às pessoas com deficiência.</p>
-        <p>A escolha de pintar toda a superfície de branco criou um acabamento "limpo" que aparenta pureza, contrastando com o conteúdo crítico da peça — informada por leituras de Foucault e Judith Butler, e referências como Marc Quinn, Kara Walker e Marina Abramović.</p>
-        <p class="credit">Apresentada em exposição coletiva na Linha Norte, Viana do Castelo, 2025 — 110cm × 50cm, gesso.</p>
+    <div class="gallery-group">
+      <h3>Híbridos — desenho digital, 2025</h3>
+      <div class="grid three">
+        <img src="https://josecarvalho05.github.io/josecarvalho/assets/hibrido-praga.jpg" alt="Praga">
+        <img src="https://josecarvalho05.github.io/josecarvalho/assets/hibrido-vorax.jpg" alt="Vorax">
+        <img src="https://josecarvalho05.github.io/josecarvalho/assets/hibrido-nectaris.jpg" alt="Nectaris">
+        <img src="https://josecarvalho05.github.io/josecarvalho/assets/hibrido-abissal.jpg" alt="Abissal">
+        <img src="https://josecarvalho05.github.io/josecarvalho/assets/hibrido-xantus.jpg" alt="Xantus">
       </div>
+      <p class="caption">Projeto da Unidade Curricular de Ilustração sobre o tema "monstros": desconstrução e recombinação de características morfológicas de diferentes insetos para gerar criaturas híbridas, exagerando a estranheza e o fascínio presentes na sua anatomia real.</p>
     </div>
-    <div class="gallery">
-      <figure data-caption="'Ser para Sentir', processo, 2025"><img src="assets/serpasentir-1.jpg" alt=""></figure>
-      <figure data-caption="'Ser para Sentir', processo, 2025"><img src="assets/serpasentir-2.jpg" alt=""></figure>
-      <figure data-caption="'Ser para Sentir', processo, 2025"><img src="assets/serpasentir-3.jpg" alt=""></figure>
-      <figure data-caption="'Ser para Sentir', processo, 2025"><img src="assets/serpasentir-4.jpg" alt=""></figure>
-      <figure data-caption="'Ser para Sentir', processo, 2025"><img src="assets/serpasentir-5.jpg" alt=""></figure>
-    </div>
-  </div>
-</section>
 
-<!-- PERCURSO -->
-<section id="percurso">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Percurso</h2>
-      <span class="section-num">08</span>
+    <div class="gallery-group">
+      <h3>Paisagens — 2025</h3>
+      <div class="grid three">
+        <img src="https://josecarvalho05.github.io/josecarvalho/assets/paisagem-1.jpg" alt="Paisagem">
+        <img src="https://josecarvalho05.github.io/josecarvalho/assets/paisagem-2.jpg" alt="Paisagem">
+        <img src="https://josecarvalho05.github.io/josecarvalho/assets/paisagem-3.jpg" alt="Paisagem">
+        <img src="https://josecarvalho05.github.io/josecarvalho/assets/paisagem-dado-1.jpg" alt="Dado com paisagens">
+        <img src="https://josecarvalho05.github.io/josecarvalho/assets/paisagem-dado-2.jpg" alt="Dado com paisagens">
+      </div>
+      <p class="caption">Série de desenhos de cafés — espaços de convivência, pausa e contemplação — reunidos num objeto tridimensional em forma de dado, símbolo do ato lúdico de escolher entre várias possibilidades.</p>
     </div>
-    <div class="timeline">
-      <div class="t-item">
-        <div class="t-date">09/2025 – atualidade · Guimarães</div>
+  </section>
+
+  <section id="serigrafia" class="wrap">
+    <div class="section-head"><span class="idx">04</span><h2>Serigrafia</h2></div>
+    <p class="lede">Composições gráficas exploradas através de cores intensas, contrastes e diferentes matrizes, num processo técnico cuidadoso.</p>
+    <div class="grid three">
+      <img src="https://josecarvalho05.github.io/josecarvalho/assets/serigrafia-1.jpg" alt="Serigrafia">
+      <img src="https://josecarvalho05.github.io/josecarvalho/assets/serigrafia-2.jpg" alt="Serigrafia">
+      <img src="https://josecarvalho05.github.io/josecarvalho/assets/serigrafia-3.jpg" alt="Serigrafia">
+      <img src="https://josecarvalho05.github.io/josecarvalho/assets/serigrafia-4.jpg" alt="Serigrafia">
+      <img src="https://josecarvalho05.github.io/josecarvalho/assets/serigrafia-5.jpg" alt="Serigrafia">
+      <img src="https://josecarvalho05.github.io/josecarvalho/assets/serigrafia-6.jpg" alt="Serigrafia">
+    </div>
+  </section>
+
+  <section id="vidro" class="wrap">
+    <div class="section-head"><span class="idx">05</span><h2>Fusão de Vidro</h2></div>
+    <p class="lede">Formação técnica e artística no Cencal: fundir pedaços de vidro a altas temperaturas para criar peças únicas, através de fusão total, fusão parcial e slump.</p>
+    <div class="grid three">
+      <img src="https://josecarvalho05.github.io/josecarvalho/assets/vidro-1.jpg" alt="Fusão de vidro">
+      <img src="https://josecarvalho05.github.io/josecarvalho/assets/vidro-2.jpg" alt="Fusão de vidro">
+      <img src="https://josecarvalho05.github.io/josecarvalho/assets/vidro-3.jpg" alt="Fusão de vidro">
+      <img src="https://josecarvalho05.github.io/josecarvalho/assets/vidro-4.jpg" alt="Fusão de vidro">
+      <img src="https://josecarvalho05.github.io/josecarvalho/assets/vidro-5.jpg" alt="Fusão de vidro">
+      <img src="https://josecarvalho05.github.io/josecarvalho/assets/vidro-6.jpg" alt="Fusão de vidro">
+      <img src="https://josecarvalho05.github.io/josecarvalho/assets/vidro-7.jpg" alt="Fusão de vidro">
+    </div>
+    <p class="caption">Aprendizagem sobre tipos de vidro compatíveis para fusão, corte e preparação, montagem de composições com sobreposições de cores, inclusões de metais e esmaltes, e programação de fornos — capacitação para desenvolver projetos próprios em contextos artísticos ou comerciais.</p>
+  </section>
+
+  <section id="escultura" class="wrap">
+    <div class="section-head"><span class="idx">06</span><h2>Escultura</h2></div>
+    <div class="grid three">
+      <img src="https://josecarvalho05.github.io/josecarvalho/assets/escultura-mascara-1.jpg" alt="Máscara em madeira">
+      <img src="https://josecarvalho05.github.io/josecarvalho/assets/escultura-mascara-2.jpg" alt="Máscara em madeira">
+      <img src="https://josecarvalho05.github.io/josecarvalho/assets/escultura-5sentidos.jpg" alt="5 Sentidos">
+    </div>
+    <p class="caption">Unidade Curricular de Madeiras, Metais e Plásticos: uma máscara em madeira que explora desenho, corte, entalhe e lixamento, e uma composição autoral que une gravura e escultura em torno do tema da árvore da vida. "5 Sentidos" — estrutura de madeira e metal que representa simbolicamente a prisão dos cinco sentidos, refletindo sobre os limites sociais, psicológicos e físicos que condicionam a perceção humana.</p>
+  </section>
+
+  <section id="projeto" class="wrap">
+    <div class="section-head"><span class="idx">07 — Projeto Artístico</span><h2>Ser para Sentir</h2></div>
+    <img src="https://josecarvalho05.github.io/josecarvalho/assets/serpasentir-final.jpg" alt="Ser para Sentir" style="margin-bottom:28px;">
+    <p>Este trabalho escultórico aborda o tema da discriminação e do julgamento social direcionado a pessoas com deficiência visual, partindo da minha experiência pessoal ao conviver desde sempre com a cegueira do meu pai.</p>
+    <p>A obra assume a forma de uma esfera em gesso, construída sobre um molde de bola de pilates. Moldes de mãos e rostos foram meticulosamente colados para criar relevo — as mãos representam o gesto acusatório, os rostos os olhares inquisidores que muitas vezes se dirigem às pessoas com deficiência.</p>
+    <p>A escolha de pintar toda a superfície de branco criou um acabamento "limpo" que aparenta pureza, contrastando com o conteúdo crítico da peça — informada por leituras de Foucault e Judith Butler, e referências como Marc Quinn, Kara Walker e Marina Abramović.</p>
+    <p class="caption">Apresentada em exposição coletiva na Linha Norte, Viana do Castelo, 2025 — 110cm × 50cm, gesso.</p>
+    <div class="grid" style="margin-top:28px;">
+      <img src="https://josecarvalho05.github.io/josecarvalho/assets/serpasentir-1.jpg" alt="Ser para Sentir">
+      <img src="https://josecarvalho05.github.io/josecarvalho/assets/serpasentir-2.jpg" alt="Ser para Sentir">
+      <img src="https://josecarvalho05.github.io/josecarvalho/assets/serpasentir-3.jpg" alt="Ser para Sentir">
+      <img src="https://josecarvalho05.github.io/josecarvalho/assets/serpasentir-4.jpg" alt="Ser para Sentir">
+    </div>
+  </section>
+
+  <section id="percurso" class="wrap">
+    <div class="section-head"><span class="idx">08</span><h2>Percurso</h2></div>
+
+    <div class="timeline-item">
+      <div class="when">09/2025 – atualidade<br>Guimarães</div>
+      <div>
         <h3>Técnico de Práticas Pedagógicas</h3>
-        <div class="t-place">A Oficina — Centro de Artes e Mesteres Tradicionais de Guimarães</div>
+        <div class="org">A Oficina — Centro de Artes e Mesteres Tradicionais de Guimarães</div>
         <p>Integração nas áreas artísticas do programa "Mais Três" — música, dança, teatro e artes visuais — no âmbito de um horário semanal dedicado a práticas pedagógicas. Função em curso, com continuidade prevista para o ano letivo 2026/2027.</p>
       </div>
-      <div class="t-item">
-        <div class="t-date">09/2022 – 07/2025 · Viana do Castelo</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="when">09/2022 – 07/2025<br>Viana do Castelo</div>
+      <div>
         <h3>Licenciatura em Artes Plásticas e Tecnologias Artísticas</h3>
-        <div class="t-place">Escola Superior de Educação do Instituto Politécnico de Viana do Castelo</div>
+        <div class="org">Escola Superior de Educação do Instituto Politécnico de Viana do Castelo</div>
         <p>Formação centrada no desenvolvimento artístico, técnico e conceptual, com ênfase em desenho e pintura, escultura e gravura, instalação artística e tecnologias digitais aplicadas à arte.</p>
       </div>
-      <div class="t-item">
-        <div class="t-date">08/2019 – 06/2022 · Guimarães</div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="when">08/2019 – 06/2022<br>Guimarães</div>
+      <div>
         <h3>Curso Secundário em Artes Visuais</h3>
-        <div class="t-place">Escola Secundária Martins Sarmento</div>
+        <div class="org">Escola Secundária Martins Sarmento</div>
         <p>Formação base em artes visuais, com disciplinas de desenho, história da cultura e da arte e geometria descritiva.</p>
       </div>
     </div>
-    <div class="cert-box">
-      <div class="t-date">09/2025</div>
-      <h3>Formação Artístico-Pedagógica Inicial</h3>
-      <p>Formação de 12h nas áreas de música, dança, teatro e artes visuais, integrada no programa "Mais Três", em A Oficina, Guimarães.</p>
-    </div>
-    <div class="cert-box" style="margin-top:24px;">
-      <div class="t-date">04/2025 – 05/2025</div>
-      <h3>Iniciação ao Fusing</h3>
-      <p>Formação de fusão de vidro no centro de formação profissional para a indústria de cerâmica, Cencal.</p>
+
+    <div class="timeline-item">
+      <div class="when">09/2025</div>
+      <div>
+        <h3>Formação Artístico-Pedagógica Inicial</h3>
+        <p>Formação de 12h nas áreas de música, dança, teatro e artes visuais, integrada no programa "Mais Três", em A Oficina, Guimarães.</p>
+      </div>
     </div>
 
-    <div class="skills-wrap">
-      <h3 class="subhead">Competências</h3>
-      <div class="skill-tags">
+    <div class="timeline-item">
+      <div class="when">04/2025 – 05/2025</div>
+      <div>
+        <h3>Iniciação ao Fusing</h3>
+        <p>Formação de fusão de vidro no centro de formação profissional para a indústria de cerâmica, Cencal.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:36px;">
+      <h3 style="font-size:1.1rem; margin-bottom:14px;">Competências</h3>
+      <p class="skills-line">
         <span>Desenho tridimensional</span>
         <span>Pintura a óleo e acrílico</span>
         <span>Escultura e moldes</span>
@@ -496,67 +367,25 @@
         <span>Serigrafia</span>
         <span>Fotografia e vídeo</span>
         <span>Fusão e pintura de vidro</span>
-      </div>
+      </p>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CONTACTO -->
-<section id="contacto">
-  <div class="wrap">
-    <div class="contact-grid">
-      <div>
-        <h2>Contacto</h2>
-        <p class="big">Vamos falar sobre o teu próximo projeto.</p>
-      </div>
-      <div class="contact-list">
-        <a href="mailto:josenub95@gmail.com"><span class="label">Email</span>josenub95@gmail.com</a>
-        <a href="tel:+351914998587"><span class="label">Telefone</span>(+351) 914 998 587</a>
-        <a href="https://www.instagram.com/josecarvalho.shots/" target="_blank"><span class="label">Instagram</span>@josecarvalho.shots</a>
-      </div>
+  <section id="contacto" class="wrap">
+    <div class="section-head"><h2>Contacto</h2></div>
+    <p class="lede">Vamos falar sobre o teu próximo projeto.</p>
+    <div class="contact-block">
+      <a href="mailto:josenub95@gmail.com">josenub95@gmail.com</a>
+      <a href="tel:+351914998587">(+351) 914 998 587</a>
+      <a href="https://www.instagram.com/josecarvalho.shots/" target="_blank" rel="noopener">@josecarvalho.shots</a>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer>
+</main>
+
+<footer class="wrap">
   © 2025 José Carvalho · Guimarães, Portugal
 </footer>
-
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox">
-  <button class="lb-close" id="lbClose">&times;</button>
-  <img id="lbImg" src="" alt="">
-  <div class="lb-caption" id="lbCaption"></div>
-</div>
-
-<script>
-  // Mobile nav toggle
-  document.getElementById('navToggle').addEventListener('click', function(){
-    document.getElementById('mainNav').classList.toggle('open');
-  });
-  document.querySelectorAll('.nav-links a').forEach(a=>{
-    a.addEventListener('click', ()=> document.getElementById('mainNav').classList.remove('open'));
-  });
-
-  // Lightbox
-  const lightbox = document.getElementById('lightbox');
-  const lbImg = document.getElementById('lbImg');
-  const lbCaption = document.getElementById('lbCaption');
-
-  document.querySelectorAll('[data-caption]').forEach(el=>{
-    el.addEventListener('click', ()=>{
-      const img = el.tagName === 'IMG' ? el : el.querySelector('img');
-      if(!img) return;
-      lbImg.src = img.src;
-      lbCaption.textContent = el.getAttribute('data-caption') || '';
-      lightbox.classList.add('active');
-    });
-  });
-
-  document.getElementById('lbClose').addEventListener('click', ()=> lightbox.classList.remove('active'));
-  lightbox.addEventListener('click', (e)=>{ if(e.target === lightbox) lightbox.classList.remove('active'); });
-  document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') lightbox.classList.remove('active'); });
-</script>
 
 </body>
 </html>
